@@ -36,7 +36,7 @@ const About = () => {
                 {portfolioData.about.description}
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Currently pursuing my final year in Software Engineering at APIIT while working as a Junior Web Developer. 
+                Currently pursuing my final year in Software Engineering at APIIT while working as an Associate Software Engineer. 
                 I specialize in creating scalable, maintainable software systems that deliver exceptional user experiences.
               </p>
               <div className="flex items-center gap-2 text-primary-500">
