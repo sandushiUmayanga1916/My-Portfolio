@@ -5,7 +5,7 @@ import portfolioData from '../data/portfolioData';
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-dark-800/50">
+    <section id="about" className="section-padding bg-dark-800/50 !mt-0">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -36,8 +36,7 @@ const About = () => {
                 {portfolioData.about.description}
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Currently pursuing my final year in Software Engineering at APIIT while working as an Associate Software Engineer. 
-                I specialize in creating scalable, maintainable software systems that deliver exceptional user experiences.
+                Currently pursuing my final year in Software Engineering at APIIT while working as an Associate Software Engineer. I specialize in creating scalable, maintainable software systems that deliver exceptional user experiences.
               </p>
               <div className="flex items-center gap-2 text-primary-500">
                 <Zap size={20} />
@@ -52,11 +51,11 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4 !mt-0">
               {portfolioData.about.highlights.map((highlight, index) => (
                 <motion.div
                   key={index}
-                  className="glass-effect rounded-lg p-4 flex items-center gap-4"
+                  className="glass-effect rounded-lg p-4 flex items-center gap-4 !mt-0"
                   whileHover={{ scale: 1.02, x: 10 }}
                   transition={{ duration: 0.2 }}
                 >
