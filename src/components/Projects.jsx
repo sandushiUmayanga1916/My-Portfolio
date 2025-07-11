@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Award, ChevronDown, ExternalLink, Github } from 'lucide-react';
 
@@ -13,24 +13,25 @@ const Projects = () => {
     ? portfolioData.projects 
     : portfolioData.projects.filter(project => project.category === filter);
 
-  const nextProject = React.useCallback(() => {
+  const nextProject = () => {
     setActiveProject((prev) => (prev + 1) % filteredProjects.length);
-  }, [filteredProjects.length]);
+  };
 
   const prevProject = () => {
     setActiveProject((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
   };
 
-  useEffect(() => {
-    const interval = setInterval(nextProject, 5000);
-    return () => clearInterval(interval);
-  }, [filteredProjects.length, nextProject]);
+  // Reset active project when filter changes
+  const handleFilterChange = (category) => {
+    setFilter(category);
+    setActiveProject(0);
+  };
 
   const currentProject = filteredProjects[activeProject];
 
   return (
     <section id="projects" className="section-padding bg-dark-800/50">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -48,10 +49,7 @@ const Projects = () => {
             {categories.map((category) => (
               <motion.button
                 key={category}
-                onClick={() => {
-                  setFilter(category);
-                  setActiveProject(0);
-                }}
+                onClick={() => handleFilterChange(category)}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   filter === category
                     ? 'bg-gradient-to-r from-primary-500 to-purple-600 text-white'
@@ -67,7 +65,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Project Carousel */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${filter}-${activeProject}`}
@@ -75,10 +73,10 @@ const Projects = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -300 }}
               transition={{ duration: 0.5 }}
-              className="glass-effect rounded-2xl p-8"
+              className="glass-effect rounded-2xl p-6 md:p-8"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
+                <div className="order-2 lg:order-1">
                   <div className="flex items-center gap-2 mb-4">
                     <Code className="text-primary-500" size={24} />
                     <span className="bg-primary-500/20 text-primary-500 px-3 py-1 rounded-full text-sm">
@@ -124,7 +122,7 @@ const Projects = () => {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {currentProject?.github && (
                       <motion.a
                         href={currentProject.github}
@@ -155,7 +153,7 @@ const Projects = () => {
                 </div>
                 
                 {/* Project Image */}
-                <div className="relative">
+                <div className="relative order-1 lg:order-2">
                   <div className="glass-effect rounded-xl overflow-hidden">
                     {currentProject?.images && currentProject.images.length > 0 ? (
                       <motion.img
@@ -226,23 +224,31 @@ const Projects = () => {
             </motion.div>
           </AnimatePresence>
           
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevProject}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 glass-effect p-3 rounded-full hover:bg-primary-500/20 transition-colors"
-          >
-            <ChevronDown className="rotate-90" size={24} />
-          </button>
-          
-          <button
-            onClick={nextProject}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 glass-effect p-3 rounded-full hover:bg-primary-500/20 transition-colors"
-          >
-            <ChevronDown className="-rotate-90" size={24} />
-          </button>
-          
-          {/* Project Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
+          {/* Navigation Buttons - Only show if more than one project */}
+          {filteredProjects.length > 1 && (
+            <>
+              <button
+                onClick={prevProject}
+                className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 glass-effect p-2 md:p-3 rounded-full hover:bg-primary-500/20 transition-colors z-10"
+                aria-label="Previous project"
+              >
+                <ChevronDown className="rotate-90 text-white" size={20} />
+              </button>
+              
+              <button
+                onClick={nextProject}
+                className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 glass-effect p-2 md:p-3 rounded-full hover:bg-primary-500/20 transition-colors z-10"
+                aria-label="Next project"
+              >
+                <ChevronDown className="-rotate-90 text-white" size={20} />
+              </button>
+            </>
+          )}
+        </div>
+        
+        {/* Project Indicators - Only show if more than one project */}
+        {filteredProjects.length > 1 && (
+          <div className="flex justify-center mt-8 space-x-2 flex-wrap">
             {filteredProjects.map((_, index) => (
               <button
                 key={index}
@@ -252,10 +258,11 @@ const Projects = () => {
                     ? 'bg-primary-500 scale-125'
                     : 'bg-gray-600 hover:bg-gray-500'
                 }`}
+                aria-label={`Go to project ${index + 1}`}
               />
             ))}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

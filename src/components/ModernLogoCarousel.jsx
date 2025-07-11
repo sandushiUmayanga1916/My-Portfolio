@@ -1,43 +1,43 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Portfolio data structure - this would be imported from your portfolioData
+// ✅ Fixed image paths: No "public/" prefix
 const portfolioData = {
   clients: [
     {
       id: 1,
       name: "Association of Chartered Certified Accountants (ACCA)",
-      logo: "public/images/accalogo.png",
+      logo: "/images/accalogo.png",
       description: "A global professional accounting body that offers the Chartered Certified Accountant qualification"
     },
     {
       id: 2,
       name: "Rocell",
-      logo: "public/images/rocell.jpg",
+      logo: "/images/rocell.jpg",
       description: "Sri Lanka's leading tile and bathware manufacturer"
     },
     {
       id: 3,
       name: "Avyana",
-      logo: "public/images/avyannalogo.png",
+      logo: "/images/avyannalogo.png",
       description: "A serene Maldivian paradise awaits, with crystal-clear waters, unspoiled beaches, and a vibrant local culture"
     },
     {
       id: 4,
       name: "International Education Consultancy (IEC)",
-      logo: "public/images/ieclogo.png",
+      logo: "/images/ieclogo.png",
       description: "An authorized Agent since 1990 as a representative and support service provider for University/Institute enrollments"
     },
     {
       id: 5,
       name: "Brandix",
-      logo: "public/images/brandixlogo.png",
+      logo: "/images/brandixlogo.png",
       description: "Net-Zero Carbon Apparel Manufacturing in Sri Lanka"
     },
     {
       id: 6,
       name: "PMF Finance",
-      logo: "public/images/pmflogo.png",
+      logo: "/images/pmflogo.png",
       description: "Provide financial products and services that will support Sri Lankans and SMEs on the pathway to success"
     }
   ]
@@ -70,14 +70,13 @@ const ModernLogoCarousel = () => {
 
   const handleImageError = (clientId) => {
     setImageErrors(prev => new Set(prev).add(clientId));
+    console.error(`Image failed to load for client ID: ${clientId}`);
   };
 
-  // Create duplicated arrays for seamless infinite scroll
   const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
     <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-900">
-
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
@@ -87,13 +86,12 @@ const ModernLogoCarousel = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto"></div>
         </div>
 
-        {/* Carousel Container */}
+        {/* Carousel */}
         <div 
           className="relative group overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Logos Container */}
           <div className="overflow-hidden">
             <div
               className={`flex transition-transform ${isPaused ? '' : 'animate-scroll'}`}
@@ -111,14 +109,12 @@ const ModernLogoCarousel = () => {
                     <div className="text-center w-full">
                       <div className="mb-4 flex justify-center">
                         {imageErrors.has(client.id) ? (
-                          // Fallback when image fails to load
                           <div className="w-48 h-32 bg-gradient-to-br from-gray-700 to-gray-600 rounded-lg flex items-center justify-center opacity-70 group-hover/logo:opacity-100 group-hover/logo:scale-110 transition-all duration-500">
                             <span className="text-base text-gray-300 font-medium text-center px-3">
                               {client.name.split(' ')[0]}
                             </span>
                           </div>
                         ) : (
-                          // Actual logo image
                           <img
                             src={client.logo}
                             alt={`${client.name} logo`}
@@ -137,11 +133,11 @@ const ModernLogoCarousel = () => {
             </div>
           </div>
 
-          {/* Gradient overlays for smooth edges */}
+          {/* Left/Right Fade */}
           <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-gray-900 to-transparent pointer-events-none z-10"></div>
           <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-gray-900 to-transparent pointer-events-none z-10"></div>
 
-          {/* Status indicator */}
+          {/* Status Indicator */}
           <div className="flex justify-center mt-6">
             <div className="text-xs text-gray-400 flex items-center gap-2">
               <div className={`w-2 h-2 rounded-full ${isPaused ? 'bg-yellow-400' : 'bg-green-400'} animate-pulse`}></div>
@@ -151,6 +147,7 @@ const ModernLogoCarousel = () => {
         </div>
       </div>
 
+      {/* Animations & Clamp */}
       <style jsx>{`
         @keyframes fadeInUp {
           from {
@@ -162,20 +159,20 @@ const ModernLogoCarousel = () => {
             transform: translateY(0);
           }
         }
-        
+
         @keyframes scroll {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-${(100 / 3)}%);
+            transform: translateX(-33.33%);
           }
         }
-        
+
         .animate-scroll {
           animation: scroll 60s linear infinite;
         }
-        
+
         .line-clamp-2 {
           display: -webkit-box;
           -webkit-line-clamp: 2;
