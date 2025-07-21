@@ -111,12 +111,23 @@ export const portfolioData = {
  projects: [
     {
       title: "IFRS Knowledge Bot",
-      description: "AI-powered learning assistant...",
-      longDescription: "Developed the frontend for the IFRS Knowledge Bot...",
-      technologies: ["React", "Node.js", "JavaScript", "HTML/CSS", "OpenAI API"],
+      description:
+        "AI-powered learning assistant designed for A/L teachers and students to enhance finance education through interactive and intelligent guidance.",
+      longDescription:
+        "Developed the frontend for the IFRS Knowledge Bot — a smart assistant that supports A/L students and teachers with IFRS-related content. The bot helps students practice finance questions and receive instant feedback, while enabling teachers to access teaching materials and build lesson plans. Built using React and Node.js with seamless integration to the backend AI engine via the OpenAI API.",
+      technologies: [
+        "React",
+        "Node.js",
+        "JavaScript",
+        "HTML/CSS",
+        "OpenAI API",
+      ],
       achievements: [
-        "Designed and implemented responsive frontend...",
-        "Integrated AI-driven Q&A feature...",
+        "Designed and implemented responsive frontend using React and Node.js",
+        "Integrated AI-driven Q&A feature with OpenAI API for real-time student support",
+        "Improved user engagement with dynamic UI and interactive components",
+        "Reduced manual teaching workload by enabling instant access to learning resources",
+        "Enabled 24/7 availability of finance education support for 500+ monthly users",
       ],
       category: "AI/ML",
       status: "Completed",
@@ -127,15 +138,28 @@ export const portfolioData = {
       images: ["/images/acca.png"],
     },
     {
-      title: "Avyanna Hotel Maldives",
-      description: "Modern, responsive hotel website...",
-      longDescription: "Built a fully responsive hotel website for Avyanna Maldives...",
+       title: "Avyanna Hotel Maldives",
+      description:
+        "Modern, responsive hotel website with third-party booking integration, multilingual support, and custom CMS features built using WordPress and PHP.",
+      longDescription:
+        "Built a fully responsive hotel website for Avyanna Maldives with an elegant design, third-party booking integration via SwiftBook, and multilingual support using Google Translate plugin. The site offers online room booking, gallery, contact forms, and a custom WordPress backend using ACF for content management. Developed with performance and SEO in mind to ensure a smooth and optimized user experience.",
       technologies: [
-        "WordPress", "PHP", "MySQL", "JavaScript", "HTML5",
-        "ACF", "Sass", "SwiftBook", "Google Translate Plugin"
+        "WordPress",
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "HTML5",
+        "ACF",
+        "Sass",
+        "SwiftBook",
+        "Google Translate Plugin",
       ],
       achievements: [
-        "Integrated SwiftBook for real-time room booking...",
+        "Integrated third-party SwiftBook engine for real-time room booking and availability",
+        "Implemented Google Translate plugin for multilingual user experience",
+        "Responsive mobile-first design with 98% mobile compatibility score",
+        "Custom admin dashboard using ACF for flexible content management",
+        "Optimized for SEO and performance with 95+ PageSpeed score",
       ],
       category: "Web Development",
       status: "Completed",
@@ -146,10 +170,26 @@ export const portfolioData = {
     },
     {
       title: "IEC Sri Lanka Website",
-      description: "Professional educational consultancy website...",
-      longDescription: "Developed a modern and responsive website for IEC Sri Lanka...",
-      technologies: ["WordPress", "PHP", "MySQL", "JavaScript", "HTML5", "ACF", "Sass"],
-      achievements: ["Built a responsive and user-friendly consultancy website..."],
+      description:
+        "Professional educational consultancy website providing information on international programs, universities, and application guidance.",
+      longDescription:
+        "Developed a modern and responsive website for IEC Sri Lanka, an educational consultancy that helps students explore and apply to international study programs. The site includes course information pages, inquiry forms, contact options, and CMS features powered by WordPress and ACF for easy content updates.",
+      technologies: [
+        "WordPress",
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "HTML5",
+        "ACF",
+        "Sass",
+      ],
+      achievements: [
+        "Built a responsive and user-friendly consultancy website",
+        "Implemented course listings and inquiry/contact forms",
+        "Used ACF for dynamic content management by non-technical staff",
+        "Optimized for SEO and mobile performance",
+        "Improved client visibility and student engagement online",
+      ],
       category: "Web Development",
       status: "Completed",
       duration: "3 months",
@@ -160,10 +200,18 @@ export const portfolioData = {
     },
     {
       title: "Seville",
-      description: "Modern business website...",
-      longDescription: "Designed and developed a sleek and responsive website for Seville...",
+      description:
+        "Modern business website for a premier construction company showcasing services, projects, and company profile.",
+      longDescription:
+        "Designed and developed a sleek and responsive website for Seville, a leading construction and engineering company in Sri Lanka. The site features a professional layout with service overviews, completed project showcases, contact forms, and company information. Built with WordPress and custom ACF fields for easy backend management and scalability.",
       technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "ACF"],
-      achievements: ["Delivered a modern, corporate-style website..."],
+      achievements: [
+        "Delivered a modern, corporate-style website with responsive design",
+        "Showcased completed projects and services with visual hierarchy",
+        "Integrated contact and inquiry forms for client communication",
+        "Utilized ACF to provide editable content sections for client",
+        "Enhanced brand credibility and online presence for the business",
+      ],
       category: "Web Development",
       status: "Completed",
       duration: "4 months",
@@ -173,11 +221,19 @@ export const portfolioData = {
       images: ["/images/seville.png"],
     },
     {
-      title: "PMF",
-      description: "Corporate website for PMF Group...",
-      longDescription: "Developed a professional and responsive website for PMF Group...",
+       title: "PMF",
+      description:
+        "Corporate website for PMF Group highlighting their services, expertise, and client-focused solutions.",
+      longDescription:
+        "Developed a professional and responsive website for PMF Group, designed to showcase their corporate services and company values. The site includes service detail sections, company profile, contact forms, and a clean visual layout. Built using WordPress and ACF for easy content updates and ongoing scalability.",
       technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "ACF"],
-      achievements: ["Delivered a fully responsive, multilingual-ready business website..."],
+      achievements: [
+        "Delivered a fully responsive, multilingual-ready business website",
+        "Created service-oriented pages with clear call-to-actions",
+        "Implemented contact and inquiry form for lead generation",
+        "Used ACF to allow dynamic and modular content editing",
+        "Boosted online visibility and brand trust for PMF Group",
+      ],
       category: "Web Development",
       status: "Completed",
       duration: "1.5 months",
@@ -188,10 +244,26 @@ export const portfolioData = {
     },
     {
       title: "Brandix Intranet Portal",
-      description: "Secure internal intranet system...",
-      longDescription: "Developed a secure and responsive intranet portal for Brandix...",
-      technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "ACF", "GlobalProtect"],
-      achievements: ["Built a secure intranet platform accessible via SASE..."],
+      description:
+        "Secure internal intranet system for Brandix employees to access organizational resources, updates, and tools.",
+      longDescription:
+        "Developed a secure and responsive intranet portal for Brandix, designed to centralize internal communications, company announcements, employee services, and document access. The system is protected via GlobalProtect VPN and is accessible only to authorized users within the Brandix network. Built with a strong focus on performance, usability, and enterprise-level security.",
+      technologies: [
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "ACF",
+        "GlobalProtect",
+      ],
+      achievements: [
+        "Built a secure intranet platform accessible via SASE (GlobalProtect VPN)",
+        "Implemented internal news, notices, and resource sections for employees",
+        "Used ACF for modular and scalable content management by HR and Admin teams",
+        "Responsive design ensuring compatibility across devices within the internal network",
+        "Improved employee engagement and streamlined access to internal tools",
+      ],
       category: "Full-Stack",
       status: "Completed",
       duration: "4 months",
