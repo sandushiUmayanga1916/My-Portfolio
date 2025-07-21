@@ -7,6 +7,7 @@ import portfolioData from '../data/portfolioData';
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [filter, setFilter] = useState('All');
+  const [imageErrors, setImageErrors] = useState({});
   
   const categories = ['All', 'Full-Stack', 'AI/ML', 'Web Development'];
   const filteredProjects = filter === 'All' 
@@ -25,6 +26,14 @@ const Projects = () => {
   const handleFilterChange = (category) => {
     setFilter(category);
     setActiveProject(0);
+  };
+
+  // Handle image load errors
+  const handleImageError = (projectIndex) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [projectIndex]: true
+    }));
   };
 
   const currentProject = filteredProjects[activeProject];
@@ -155,7 +164,10 @@ const Projects = () => {
                 {/* Project Image */}
                 <div className="relative order-1 lg:order-2">
                   <div className="glass-effect rounded-xl overflow-hidden">
-                    {currentProject?.images && currentProject.images.length > 0 ? (
+                    {/* Show image if available and no error */}
+                    {currentProject?.images && 
+                     currentProject.images.length > 0 && 
+                     !imageErrors[activeProject] ? (
                       <motion.img
                         src={currentProject.images[0]}
                         alt={currentProject.title}
@@ -163,27 +175,28 @@ const Projects = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        onError={(e) => {
-                          // Fallback to placeholder if image fails to load
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'flex';
+                        onError={() => handleImageError(activeProject)}
+                        onLoad={() => {
+                          // Remove error state if image loads successfully
+                          setImageErrors(prev => {
+                            const updated = { ...prev };
+                            delete updated[activeProject];
+                            return updated;
+                          });
                         }}
                       />
-                    ) : null}
-                    
-                    {/* Fallback placeholder */}
-                    <div 
-                      className="w-full h-80 bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center"
-                      style={{ display: currentProject?.images && currentProject.images.length > 0 ? 'none' : 'flex' }}
-                    >
-                      <div className="text-center">
-                        <Code size={48} className="text-white mb-4 mx-auto" />
-                        <h4 className="text-xl font-semibold text-white mb-2">
-                          {currentProject?.title}
-                        </h4>
-                        <p className="text-white/80">Project #{activeProject + 1}</p>
+                    ) : (
+                      /* Fallback placeholder */
+                      <div className="w-full h-80 bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center">
+                        <div className="text-center">
+                          <Code size={48} className="text-white mb-4 mx-auto" />
+                          <h4 className="text-xl font-semibold text-white mb-2">
+                            {currentProject?.title}
+                          </h4>
+                          <p className="text-white/80">Project #{activeProject + 1}</p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                     
                     {/* Overlay with project info */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
