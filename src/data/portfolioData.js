@@ -153,7 +153,7 @@ export const portfolioData = {
         "Integrated secure authentication and user management system",
         "Enhanced performance and scalability through optimized backend design",
       ],
-      category: "Web Application",
+      category: "ull-Stack Web Development",
       status: "Ongoing",
       duration: "4 months",
       team: "3 members",
