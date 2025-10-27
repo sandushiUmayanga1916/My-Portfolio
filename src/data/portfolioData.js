@@ -35,13 +35,37 @@ export const portfolioData = {
 
   experience: [
     {
+      title: "Software Engineer",
+      company: "Gmart Online Technologies",
+      location: "Colombo, Sri Lanka",
+      period: "September 2025 – Present",
+      type: "Full-time",
+      description:
+        "Developed web applications, built React applications, and managed cloud hosting environments. Led project coordination and team assignments while ensuring timely delivery of high-quality solutions.",
+      achievements: [
+        "Developed full-stack web applications using React, Node.js, and MongoDB.",
+        "Designed responsive UI components with React and Tailwind CSS.",
+        "Implemented authentication and authorization using JWT and middleware.",
+        "Integrated MongoDB Atlas for efficient data storage and retrieval.",
+        "Collaborated with cross-functional teams using Git and Agile methodologies.",
+        "Improved app performance and reduced load time through code optimization.",
+      ],
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "RESTful APIs",
+        "Tailwind CSS"
+      ],
+    },
+    {
       title: "Associate Software Engineer",
       company: "Enfection Pvt Ltd",
       location: "Colombo, Sri Lanka",
-      period: "March 2024 – Present",
+      period: "March 2024 – September 2025",
       type: "Full-time",
       description:
-        "Developed custom WordPress websites, built React applications, and managed cloud hosting environments. Led project coordination and team assignments while ensuring timely delivery of high-quality solutions.",
+        "Developed custom websites, built React applications, and managed cloud hosting environments. Led project coordination and team assignments while ensuring timely delivery of high-quality solutions.",
       achievements: [
         "Built 6+ scalable web applications",
         "Converted 15+ UI designs from Figma/Illustrator into responsive websites",
@@ -108,7 +132,36 @@ export const portfolioData = {
     },
   ],
 
- projects: [
+  projects: [
+    {
+      title: "Invesyn",
+      description:
+        "Modern trading platform designed to enhance user trading experience with real-time insights and seamless performance.",
+      longDescription:
+        "Developed a full-stack trading application enabling users to analyze markets, manage portfolios, and execute simulated trades efficiently. Invesyn offers an intuitive dashboard, real-time data visualization, and secure user authentication. Built using React, Node.js, and MongoDB, the platform ensures smooth data flow between frontend and backend while maintaining optimal performance and scalability.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express.js",
+        "Tailwind CSS",
+      ],
+      achievements: [
+        "Developed full-stack architecture with React, Node.js, and MongoDB for seamless performance",
+        "Built and optimized RESTful APIs to handle trading data efficiently",
+        "Implemented responsive and interactive UI for real-time user experience",
+        "Integrated secure authentication and user management system",
+        "Enhanced performance and scalability through optimized backend design",
+      ],
+      category: "Web Application",
+      status: "Ongoing",
+      duration: "4 months",
+      team: "3 members",
+      github: "https://github.com/GmartOnline-Technologies/GOP32025-01-WEB-APP.git", // replace with your actual repo link
+      // demo: "https://invesyn.app", // replace with actual demo if available
+      images: ["/images/invesyn.png"],
+    },
+
     {
       title: "IFRS Knowledge Bot",
       description:
@@ -138,7 +191,7 @@ export const portfolioData = {
       images: ["/images/acca.png"],
     },
     {
-       title: "Avyanna Hotel Maldives",
+      title: "Avyanna Hotel Maldives",
       description:
         "Modern, responsive hotel website with third-party booking integration, multilingual support, and custom CMS features built using WordPress and PHP.",
       longDescription:
@@ -221,7 +274,7 @@ export const portfolioData = {
       images: ["/images/seville.png"],
     },
     {
-       title: "PMF",
+      title: "PMF",
       description:
         "Corporate website for PMF Group highlighting their services, expertise, and client-focused solutions.",
       longDescription:

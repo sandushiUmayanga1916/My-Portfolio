@@ -73,7 +73,7 @@ const navItems = [
               
               {/* Enhanced Resume Download Button */}
               <a
-                href="/files/Sandushi Dissanayake.pdf"
+                href="/files/SANDUSHI DISSANAYAKE.pdf"
                 download
                 className="ml-6 relative px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden group hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
@@ -155,7 +155,7 @@ const navItems = [
               {/* Mobile Resume Button */}
               <div className="mt-8 pt-8 border-t border-gray-800/50">
                 <a
-                  href="/files/Sandushi Dissanayake.pdf"
+                  href="/files/SANDUSHI DISSANAYAKE.pdf"
                   download
                   onClick={() => setIsOpen(false)}
                   className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
